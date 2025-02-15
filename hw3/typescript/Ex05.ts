@@ -97,9 +97,11 @@ export function filterUsers(
   criteria: Omit<Partial<User>, "type">
 ): User[] {
   return persons.filter(isUser).filter((user) => {
-    return Object.keys(criteria).every((key) => {
-      return user[key as keyof User] === criteria[key as keyof User];
-    });
+    return (Object.keys(criteria) as Array<keyof typeof criteria>).every(
+      (key) => {
+        return user[key] === criteria[key];
+      }
+    );
   });
 }
 
