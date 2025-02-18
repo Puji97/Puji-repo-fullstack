@@ -25,7 +25,7 @@ const Board = ({ xIsNext, squares, onPlay }) => {
     <>
       <div className="status">{status}</div>
       <div className="board-row">
-        {[0, 1, 2].map((i) => (
+        {[0, 1, 2].map((i) => ( 
           <Square
             key={i}
             value={squares[i]}
