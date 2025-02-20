@@ -32,7 +32,6 @@ app.get("/form", (req, res) => {
     `);
 });
 
-// Submit page with query parameters
 app.get("/submit", (req, res) => {
   const name = req.query.name || "N/A";
   const email = req.query.email || "N/A";
@@ -49,7 +48,6 @@ app.get("/submit", (req, res) => {
     `);
 });
 
-// Start the server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });

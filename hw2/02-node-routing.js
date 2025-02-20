@@ -21,13 +21,13 @@ const routes = [
 ];
 
 const server = http.createServer((req, res) => {
-  const path = req.url.slice(1); // Extract the route (remove leading slash)
+  const path = req.url.slice(1);
 
   if (path === "welcome") {
     res.writeHead(200, { "Content-Type": "text/html" });
     res.write("<h1>Welcome to the Node Routing Exercise!</h1>");
     res.end();
-    return; // Ensure no further code is executed
+    return;
   } else if (path === "redirect") {
     res.writeHead(302, { Location: "/redirected" });
     res.end();
@@ -40,7 +40,7 @@ const server = http.createServer((req, res) => {
   } else if (path === "cache") {
     res.writeHead(200, {
       "Content-Type": "text/html",
-      "Cache-Control": "max-age=86400", // Cache for one day
+      "Cache-Control": "max-age=86400",
     });
     res.write("<h1>This resource was cached!</h1>");
     res.end();
@@ -54,13 +54,11 @@ const server = http.createServer((req, res) => {
     res.end();
     return;
   } else if (path === "other") {
-    // Explicitly handle the "other" route
     res.writeHead(404, { "Content-Type": "text/html" });
     res.write("<h1>404 - Page Not Found</h1>");
     res.end();
     return;
   } else {
-    // Handle all other undefined routes
     res.writeHead(404, { "Content-Type": "text/html" });
     res.write("<h1>404 - Page Not Found</h1>");
     res.end();
